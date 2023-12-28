@@ -20,7 +20,7 @@ Final Project for CFGDegree
 
   
 
-1. Using MySQLWorkbench, connect to MySQL and run all instructions contained in the `app/db/schema/Recipea_App_User_Fed_DB.sql` file. You can run them one by one.
+1. Using MySQLWorkbench, connect to MySQL and run all instructions contained in the `db/schema/Recipea_App_User_Fed_DB.sql` file. You can run them one by one.
 
   
   

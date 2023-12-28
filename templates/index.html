@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFG Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!----------------------Header------------------------->
+
+<header>
+    <div class="container">
+      <nav>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.svg" class="logo" alt="Logo">
+              </a>
+        </div>
+        <ul id="header-nav">
+          <li><a href="sendyours.html">Send Yours</a></li>
+        </ul>
+        <div class="right-section">
+          <div class="search-bar">
+            <input type="text" placeholder="Search..." onkeyup="handleSearch()"/>
+            <button class="search-button" onclick="handleSearch()">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <a href="matches.html">
+          <button class="favorite-button">
+            <i class="fa fa-heart" style="font-size:30px;color:red"></i>
+          </button>
+            </a>
+        </div>
+      </nav>
+      <div class="header-text">
+        <p><b>Just like Tinder. But with <span>taste.</span></b></p>
+      </div>
+      <a href="build.html">
+        <button class="go-button">GO</button>
+      </a>
+    </div>
+  </header>
+
+  <script>
+    function handleSearch() {
+      // Get the search input element and search text
+      const searchInput = document.querySelector('.search-bar input');
+      const searchText = searchInput.value.toLowerCase();
+  
+      // Get all the cards
+      const cards = document.querySelectorAll('.card');
+  
+      // Loop through each card and check if it matches the search text
+      cards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const description = card.querySelector('.card-description').textContent.toLowerCase();
+  
+        // Show or hide the card based on the search text
+        if (title.includes(searchText) || description.includes(searchText)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  
+    // Get the matches list container element
+    const matchesList = document.getElementById('matches-list');
+  
+    // Retrieve saved cards from local storage
+    const savedCards = localStorage.getItem('matchesData');
+    let cards = [];
+    if (savedCards) {
+      cards = JSON.parse(savedCards);
+    }
+  
+    // Generate HTML for each card and append it to the matches list
+    cards.forEach(card => {
+      const cardHTML = `
+        <div class="card">
+          <img src="images/IMG_6452-1-768x623.jpg" alt="Image">
+          <div class="card-content">
+            <h3 class="card-title">${card.title}</h3>
+            <p class="card-description">${card.description}</p>
+          </div>
+          <div class="card-icons">
+            <i class="fas fa-times"></i>
+            <i class="fas fa-heart favorite-button"></i>
+          </div>
+        </div>
+      `;
+      matchesList.innerHTML += cardHTML;
+    });
+  </script>
+
+
+
+
+<!-----------------------Footer------------------------->
+<footer> 
+    <div class="copyright">
+            <p> © 2023 <span>Danielle Lott, Elizabeth Turay, Raluca Teslovan, Ella Myton, Isolda Liborio, Lidiia Kliuchna</span></p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

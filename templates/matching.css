@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro';
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-image:    url(images/matchingbkg.png);
+    background-size:     80%;                      
+    background-repeat:   no-repeat;
+    background-position: center center; 
+  }
+  
+  #header {
+    width: 100%;
+    height: 110vh;
+    background-position: center;
+  }
+  
+  .container {
+    padding: 10px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  .element-above-background {
+    position: relative;
+    z-index: 1; 
+  }
+
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    width: 120px;
+    cursor: pointer;
+  }
+  
+  nav ul {
+    display: flex;
+    align-items: right;
+    list-style: none;
+    margin-right: auto;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 20px 20px;
+    margin-top: 35px;
+  }
+  
+  nav ul li a {
+    color: #18171D;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 20px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    margin-left: auto;
+  }
+  
+  input[type="text"] {
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  .search-button {
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .search-button i {
+    color: #888;
+  }
+  
+  .favorite-button {
+    background-color: transparent;
+    border: none;
+    padding: 15px;
+    margin-top: 25px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .favorite-button i {
+    color: #888;
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .header-text {
+    margin-top: 10%;
+    font-size: 40px;
+    text-align: left;
+  }
+  
+  .header-text h1 {
+    font-size: 60px;
+    margin-top: 15px;
+  }
+  
+  .header-text h3 {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  
+  .header-text p span {
+    color: #0435e2;
+  }
+  
+  #header-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  /*-------------cards-------------*/
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 6%;
+    overflow: hidden;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    color: #888888;
+  }
+  
+  .card-icons {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+    color: #888888;
+  }
+  
+  .card-icons i {
+    padding-left: 70px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .card-icons i:hover {
+    color: #ff0000;
+  }
+  
+  i.fas.fa-times {
+    margin-top: 50px;
+  }
+  i.fas.fa-heart.favorite-button{
+  margin-top: 35px;
+}
+
+/*-------------footer-------------*/
+  
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container {
+    flex: 1;
+    padding: 10px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  
+  .copyright{
+    background-color: #f0f0f0;
+    padding: 15px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-top: 880px;
+  }
+  

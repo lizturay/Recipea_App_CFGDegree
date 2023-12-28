@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFG Project</title>
+    <link rel="stylesheet" href="sendyours.css">
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!----------------------Header------------------------->
+
+<header>
+    <div class="container">
+      <nav>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.svg" class="logo" alt="Logo">
+            </a>
+        </div>
+        <ul id="header-nav">
+          <li><a href="sendyours.html">Send Yours</a></li>
+        </ul>
+        <div class="right-section">
+          <div class="search-bar">
+            <input type="text" placeholder="Search..." />
+            <button class="search-button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <a href="matches.html">
+          <button class="favorite-button">
+            <i class="fa fa-heart" style="font-size:30px;color:red"></i>
+          </button>
+            </a>
+        </div>
+      </nav>
+      <div class="container-box">
+        <h2 class="title">Send Yours!</h2>
+        <p class="description">Want more matches? Send us your recipe. <span class="required">*Required</span></p>
+        
+        <div class="input-field">
+          <input type="text" id="recipe" required>
+        </div>
+        
+        <div class="upload-button">
+            <label for="picture">Upload Picture:</label>
+            <span class="required">* Required</span>
+        </div>
+        <div class="upload-button1">
+            <input type="file" id="picture" required>
+        </div>
+          
+          
+        <div class="columns">
+            <div class="column-1">
+              <h3>Cuisine</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" id="chinese" name="cuisine" value="chinese">
+                  <label for="chinese">Chinese</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="thai" name="cuisine" value="thai">
+                  <label for="thai">Thai</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="american" name="cuisine" value="american">
+                  <label for="american">American</label>
+                </li>
+              </ul>
+            </div>
+            <div class="column-2">
+              <h3>Health</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" id="sesame-free" name="health" value="sesame-free">
+                  <label for="sesame-free">Sesame-free</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="pork-free" name="health" value="pork-free">
+                  <label for="pork-free">Pork-free</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="shellfish-free" name="health" value="shellfish-free">
+                  <label for="shellfish-free">Shellfish-free</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="red-meat-free" name="health" value="red-meat-free">
+                  <label for="red-meat-free">Red Meat-free</label>
+                </li>
+              </ul>
+            </div>
+            <div class="column-3">
+              <h3>Meal Type</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" id="breakfast" name="meal-type" value="breakfast">
+                  <label for="breakfast">Breakfast</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="lunch" name="meal-type" value="lunch">
+                  <label for="lunch">Lunch</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="dinner" name="meal-type" value="dinner">
+                  <label for="dinner">Dinner</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+      <a href="submission.html">
+        <button class="go-button">GO</button>
+      </a>
+    </div>
+  </header>
+
+<!-----------------------Footer------------------------->
+<footer> 
+    <div class="copyright">
+            <p> © 2023 <span>Danielle Lott, Elizabeth Turay, Raluca Teslovan, Ella Myton, Isolda Liborio, Lidiia Kliuchna</span></p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

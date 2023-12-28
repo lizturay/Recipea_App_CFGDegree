@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFG Project</title>
+    <link rel="stylesheet" href="matching.css">
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!----------------------Header------------------------->
+
+<header>
+    <div class="container">
+      <nav>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.svg" class="logo" alt="Logo">
+            </a>
+        </div>
+        <ul id="header-nav">
+          <li><a href="sendyours.html">Send Yours</a></li>
+        </ul>
+        <div class="right-section">
+          <div class="search-bar">
+            <input type="text" placeholder="Search..." />
+            <button class="search-button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <a href="matches.html">
+            <button class="favorite-button">
+              <i class="fa fa-heart" style="font-size:30px;color:red"></i>
+            </button>
+          </a>
+        </div>
+      </nav>
+    </div>
+</header>
+
+<div class="card-container">
+  <div class="card active" id="card1">
+    <img src="images/IMG_6452-1-768x623.jpg" alt="Image">
+    <div class="card-content">
+      <h3 class="card-title">Ribeye Steak with Potato Wedges & Asparagus</h3>
+      <p class="card-description">Meal type: Dinner</p>  
+      <p class="card-description">Cuisine: Argentinian</p> 
+    </div>
+    <div class="card-icons">
+      <i class="fas fa-times times-button"></i>
+      <i class="fas fa-heart favorite-button"></i>
+    </div>
+  </div>
+  <div class="card" id="card2">
+    <img src="images/IMG_6452-1-768x623.jpg" alt="Image">
+    <div class="card-content">
+      <h3 class="card-title">Another Dish</h3>
+      <p class="card-description">Meal type: Lunch</p>  
+      <p class="card-description">Cuisine: Italian</p> 
+    </div>
+    <div class="card-icons">
+      <i class="fas fa-times times-button"></i>
+      <i class="fas fa-heart favorite-button"></i>
+    </div>
+  </div>
+  <div class="card" id="card3">
+    <img src="images/IMG_6452-1-768x623.jpg" alt="Image">
+    <div class="card-content">
+      <h3 class="card-title">Yet Another Dish</h3>
+      <p class="card-description">Meal type: Breakfast</p>  
+      <p class="card-description">Cuisine: French</p> 
+    </div>
+    <div class="card-icons">
+      <i class="fas fa-times times-button"></i>
+      <i class="fas fa-heart favorite-button"></i>
+    </div> 
+  </div>
+</div>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const favoriteButtons = document.querySelectorAll('.favorite-button');
+const timesButtons = document.querySelectorAll('.times-button');
+
+function handleFavoriteButtonClick(event) {
+  const card = event.target.closest('.card');
+  const title = card.querySelector('.card-title').textContent;
+  const description = card.querySelectorAll('.card-description')[1].textContent;
+  const savedCard = { title, description };
+
+  const matchesData = localStorage.getItem('matchesData');
+  let savedCards = [];
+  if (matchesData) {
+    savedCards = JSON.parse(matchesData);
+  }
+
+  savedCards.push(savedCard);
+  localStorage.setItem('matchesData', JSON.stringify(savedCards));
+
+  // Hide the current card
+  card.style.display = 'none';
+
+  // Show the next card (if available)
+  const nextCard = card.nextElementSibling;
+  if (nextCard) {
+    nextCard.classList.add('active');
+  }
+}
+
+function handleTimesButtonClick(event) {
+  const card = event.target.closest('.card');
+  card.style.display = 'none';
+}
+
+favoriteButtons.forEach(button => {
+  button.addEventListener('click', handleFavoriteButtonClick);
+});
+
+timesButtons.forEach(button => {
+  button.addEventListener('click', handleTimesButtonClick);
+});
+
+// Get references to the card elements
+const card1 = document.getElementById('card1');
+const card2 = document.getElementById('card2');
+const card3 = document.getElementById('card3');
+
+// Array to hold the cards
+const cardsArray = [card1, card2, card3];
+
+// Index to keep track of the current card
+let currentIndex = 0;
+
+// Function to show the current card
+function showCurrentCard() {
+  // Hide all cards
+  cardsArray.forEach(card => {
+    card.style.display = 'none';
+  });
+
+  // Show the current card
+  cardsArray[currentIndex].style.display = 'block';
+}
+
+// Function to handle the heart button click
+function handleHeartButtonClick() {
+  // Move to the next card
+  currentIndex++;
+
+  // If the current index exceeds the number of cards, reset to the first card
+  if (currentIndex >= cardsArray.length) {
+    currentIndex = 0;
+  }
+
+  // Show the current card
+  showCurrentCard();
+}
+
+// Add click event listener to the heart buttons
+favoriteButtons.forEach(button => {
+  button.addEventListener('click', handleHeartButtonClick);
+});
+
+// Initially show the first card
+showCurrentCard();
+
+</script>
+
+</script>
+
+
+<!-----------------------Footer------------------------->
+<footer> 
+  <div class="container">
+    <div class="copyright">
+      <p> © 2023 <span>Danielle Lott, Elizabeth Turay, Raluca Teslovan, Ella Myton, Isolda Liborio, Lidiia Kliuchna</span></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,151 +1,194 @@
-# Recipea_App_CFGDegree
-Final Project for CFGDegree
+# 🍳 Recipea App — CFG Degree Final Project
 
-**Team:** group 6
-1.  Danielle Maria Perez Lott
-2.  Ella Myton
-3.  Elizabeth Turay
-4.  Isolda Liborio
-5.  Lidiia Kliuchna
-6.  Raluca Teslovan
+A full-stack **Flask + MySQL** application that helps users find and store recipes using live data from the **Edamam API**.  
+Built collaboratively as part of the Code First Girls Software Engineering Degree.
 
+[![Built with Python](https://img.shields.io/badge/Built%20with-Python%20%7C%20Flask-yellow.svg)](#)
+[![Database: MySQL](https://img.shields.io/badge/Database-MySQL-blue.svg)](#)
+[![API: Edamam](https://img.shields.io/badge/API-Edamam-green.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)](LICENSE)
 
+---
 
-# Instructions 
-(to run the application (for Mac/Linux):
+## 👩‍💻 Team — Group 6
+- **Danielle Maria Perez Lott**  
+- **Ella Myton**  
+- **Elizabeth Turay**  
+- **Isolda Liborio**  
+- **Lidiia Kliuchna**  
+- **Raluca Teslovan**
 
-  
+---
 
-## Set-up the database
+## 📖 Overview
+Recipea connects food enthusiasts with curated recipes through a clean API-driven interface.  
+It integrates **Flask**, **MySQL**, and the **Edamam API** to allow users to:
+- Search for recipes by cuisine, ingredients, or health tags  
+- Add and store personal recipes in a MySQL database  
+- Retrieve recipe data programmatically through RESTful endpoints  
 
-  
+This project demonstrates our ability to design, build, and document a multi-layered web application with both external API integration and custom database logic.
 
-1. Using MySQLWorkbench, connect to MySQL and run all instructions contained in the `app/db/schema/Recipea_App_User_Fed_DB.sql` file. You can run them one by one.
+---
 
-  
-  
+## ✨ Key Features
+- **Edamam API Integration** for real-time recipe search  
+- **User Recipe Management** via CRUD endpoints  
+- **MySQL Database** with clear schema and entity relationships  
+- **RESTful Flask API** architecture  
+- **Environment-variable security** with `.env` handling  
+- **Postman-ready endpoints** for easy testing  
 
-## Set-up dev environment
+---
 
-  
+## 🧰 Tech Stack
+| Layer | Technology |
+|-------|-------------|
+| **Frontend** | HTML, Jinja Templates |
+| **Backend** | Python 3, Flask |
+| **Database** | MySQL (Workbench / Connector) |
+| **External API** | Edamam Recipe Search API |
+| **Tools** | Postman, cURL, Virtual Env, dotenv |
+| **Version Control** | Git & GitHub |
 
-1.  **Create a virtual environment**
+---
 
-`cd <your virtual environment folder>`
+## ⚙️ Installation & Setup
 
-`python -m venv <name of venv>`
+### 1️⃣ Set up the Database
+Open **MySQL Workbench** and run the SQL script:
+```
 
-`source <path of venv>/bin/activate`
+app/db/schema/Recipea_App_User_Fed_DB.sql
 
-  
+````
+Run statements sequentially to create all tables.
 
-2.  **Clone the repository**
+### 2️⃣ Create a Virtual Environment (Mac / Linux)
+```bash
+cd <your-dev-folder>
+python -m venv venv
+source venv/bin/activate
+````
 
-`cd <project location>`
+*(On Windows: `venv\Scripts\activate`)*
 
-`git clone <repo url>`
+### 3️⃣ Clone the Repository
 
-  
+```bash
+git clone https://github.com/lizturay/Recipea_App_CFGDegree.git
+cd Recipea_App_CFGDegree
+```
 
-3.  **Install dependencies**
+### 4️⃣ Install Dependencies
 
-`pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
-  
+### 5️⃣ Configure Environment Variables
 
-4.  **Create the .env file**
-
-Make a copy of `.env.sample` and name it `.env`. In this new file, fill in the variables with the missing credentials. E.g:
-
-`MYSQL_USER=root`
-
-  
-
-4.  **Run the Flask app**
-
-`cd app`
-
-`python run.py`
-
-The application should be running on `localhost:5000`
-
-  
-  
-
-## Test the API
-
-1. Once the app is running you can start making requests using the API endpoints.
-
--  `GET` requests can be made from the browser
-
--- `http://127.0.0.1:5000/search/edamam?Health=Kosher&cuisineType=italian&ingredient=potato`
-
-- For `POST`, you can use the app [Postman](https://www.postman.com/downloads/) or the command `curl` using the terminal, or create a file with the client side.
-
--- `add link to Postman docs/tutorial`
-
-Using curl from the terminal:
-
--- `curl -X POST -H "Content-Type: application/json" -d '{"recipe_name": "Moqueca baiana vegetariana", "cuisine_type": "brazilian", "health": "vegetarian", "meal_type": "lunch/dinner", "cooking_directions": "Cook well", "preparation_time": "60", "portions": "7", "image_url": "", "ingredients": [{"name": "palm oil", "quantity": "1", "measure": "bottle"}, {"name": "coconut milk", "quantity": 1, "measure": "can"}]}' localhost:5000/recipes`
-
-  
-## App architecture  
-### `app/`
-The main folder for the application
-
-### `app/api/edamam.py`
-Methods to interact with the Edamam API. They will be called from `app/routes/api_routes.py`
-
-### `app/api/recipea_db.py`
-Methods to interact with the Recipea database (MySQL). They will be called from `app/routes/api_routes.py`
-
-### `app/api/db/mysql_connector.py`
-Method to connect to MySQL database. The method `connect()` contained in this file needs to be imported wherever you need to connect to the DB.
-
-### `app/api/routes/api_routes.py`
- Where the API endpoints are declared 
- 
-### `app/templates/index.html` 
-Store HTML templates
-
-### `app/__init__.py  `
-File to indicate that the package can be imported. 
-
-### `app/run.py  `
-Application entry point. 
-This is where the Flask app is initialized and the routes are registered. 
-
-### `.env.sample  `
-It contains sensitive information of credential acesses,  like connection credentials, API keys, etc. 
-A template for the .env file. See instructions above.
-
-### `requirements.txt  `
-The requirements package for the application
-
-## Folder structure
+Duplicate `.env.sample` and rename it `.env`.
+Add your credentials:
 
 ```
-recipea/  
-├── app/  
-│   ├── api/  
-│   │   ├── edamam.py  
-│   │   ├── recipea_db.py  
-│   ├── db/  
-│   │   ├── schema/  
-│   │   │    ├── Recipea_App_User_Fed_DB.sql  
-│   │   │    ├── Recipea_ERD.mwb  
-│   │   ├── mysql_connector.py  
-│   ├── routes/  
-│   │   ├── api_routes.py  
-│   ├── templates/  
-│   │   ├── index.html  
-│   ├── __init__.py  
-│   ├── run.py  
-├── docs/  
-│   ├── folder_structure.txt  
-│   ├── Recipe Match App.docx  
-├── .env.sample  
-├── requirements.txt  
-.gitignore  
-README.md
+MYSQL_USER=root
+MYSQL_PASSWORD=yourpassword
+MYSQL_HOST=localhost
+MYSQL_DATABASE=Recipea_App_User_Fed_DB
+EDAMAM_API_KEY=your_edamam_key
+```
+
+### 6️⃣ Run the Flask App
+
+```bash
+cd app
+python run.py
+```
+
+The application runs on **[http://127.0.0.1:5000/](http://127.0.0.1:5000/)**
+
+---
+
+## 🔗 Example API Endpoints
+
+### Search via Edamam API
+
+```
+GET http://127.0.0.1:5000/search/edamam?Health=Kosher&cuisineType=italian&ingredient=potato
+```
+
+### Add Recipe (POST)
+
+Using cURL:
+
+```bash
+curl -X POST -H "Content-Type: application/json" \
+-d '{
+  "recipe_name": "Moqueca baiana vegetariana",
+  "cuisine_type": "brazilian",
+  "health": "vegetarian",
+  "meal_type": "lunch/dinner",
+  "cooking_directions": "Cook well",
+  "preparation_time": "60",
+  "portions": "7",
+  "image_url": "",
+  "ingredients": [
+    {"name": "palm oil", "quantity": "1", "measure": "bottle"},
+    {"name": "coconut milk", "quantity": "1", "measure": "can"}
+  ]
+}' \
+http://127.0.0.1:5000/recipes
+```
+
+### Test with Postman
+
+Import endpoints and parameters directly or use cURL commands.
+*(Future improvement: Add a Postman Collection link here.)*
+
+---
+
+## 🧩 Application Architecture
+
+```
+recipea/
+├── app/
+│   ├── api/
+│   │   ├── edamam.py          # Edamam API integration
+│   │   ├── recipea_db.py      # CRUD operations with MySQL
+│   ├── db/
+│   │   └── schema/
+│   │        ├── Recipea_App_User_Fed_DB.sql
+│   │        ├── Recipea_ERD.mwb
+│   ├── routes/
+│   │   └── api_routes.py      # Endpoint declarations
+│   ├── templates/
+│   │   └── index.html
+│   ├── __init__.py
+│   └── run.py                 # Flask entry point
+├── docs/
+│   ├── folder_structure.txt
+│   └── Recipe Match App.docx
+├── .env.sample
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🧠 Challenges & Lessons Learned
+
+* Managing **API keys** securely through environment variables
+* Designing a **relational schema** to handle nested recipe data
+* Structuring a multi-file Flask project with clean imports
+* Debugging **cross-module imports** and **JSON payloads**
+* Practising **team collaboration** with Git branching and merge requests
+
+---
+
+## 📜 License
+
+Distributed under the [MIT License](LICENSE).
+© 2025 Team 6 – Recipea App | Code First Girls Degree
+
 ```
